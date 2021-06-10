@@ -15,14 +15,16 @@ public class ItemCatalogTest {
         assertEquals("The expected item didn't exist in database.", expectedResult, actualResult);
     }
 
+    @Test
     public void testItemNotExists() {
         String tomat = "Banan";
         boolean expectedResult = false;
         ItemCatalog itemCatalog = new ItemCatalog();
         boolean actualResult = itemCatalog.itemExists(tomat);
-        assertEquals("The expected item does exist in database.", expectedResult, actualResult);
+        assertEquals("The expected item does exist in database.",expectedResult, actualResult);
     }
 
+    @Test
     public void testItemExistsWithNullString() {
         String tomat = null;
         boolean expectedResult = false;

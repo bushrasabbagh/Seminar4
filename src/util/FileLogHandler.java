@@ -43,6 +43,6 @@ public class FileLogHandler extends LogHandler {
         builder.append(NEW_LINE);
         printWriter.println(builder.toString());
         exc.printStackTrace(printWriter);
-        printWriter.println("******************************");
+        printWriter.println("************ /LOG/ *************");
     }
 }

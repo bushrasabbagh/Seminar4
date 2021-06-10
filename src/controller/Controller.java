@@ -62,6 +62,7 @@ public class Controller {
      */
     public String registerItem(String itemIdentifier, Amount quantity) throws OperationFailedException, InvalidItemIdentifierException {
         checkIfSaleIsNull("registerItem");
+        //checkIfDataBase("DATABASEERROR");
         try {
             Item item = itemCatalog.getItem(itemIdentifier, quantity);
             return sale.updateSale(item) + ", quantity: " + quantity.toString() +
@@ -123,4 +124,9 @@ public class Controller {
             throw new IllegalStateException("Call to " + method + " was made before initiating a new sale.");
         }
     }
+    /*private void checkIfDataBase(String method){
+        if (method == "DATABASEERROR"){
+            throw new IllegalStateException("CANT DATABASE");
+        }
+    }*/
 }

@@ -17,7 +17,9 @@ public class DiscountCatalog {
      *  Creates a new instance, represented as a discount database.
      */
     DiscountCatalog(){
+        //lookForDiscount();
         addCustomerAndTheirDiscounts();
+
     }
 
     /**

@@ -3,8 +3,10 @@ package view;
 import controller.Controller;
 import controller.OperationFailedException;
 import integration.InvalidItemIdentifierException;
+import integration.ServerNotRunningException;
 import util.Amount;
 import util.ConsoleLogHandler;
+import util.FileLogHandler;
 import util.LogHandler;
 
 /**
@@ -15,6 +17,7 @@ public class View {
     private Controller controller;
     private ErrorMessageHandler errorMessageHandler = ErrorMessageHandler.getErrorMessageHandler();
     private LogHandler logHandler = ConsoleLogHandler.getLogHandler();
+    private LogHandler fileLogHandler = FileLogHandler.getLogHandler();
 
     /**
      *  Creates a new instance, represented as a view.
@@ -35,9 +38,11 @@ public class View {
         controller.startNewSale();
         System.out.println("Cashier enter items. \n");
         //registerItem("Tomat", new Amount(1));
+        registerItem("DATABASEERROR", new Amount(20));
         registerItem("Gurka", new Amount(4));
         registerItem("Tomt", new Amount(5));
         registerItem("ERROR", new Amount(20));
+
         //registerItem("Paprika", new Amount(2));
 
         try{
@@ -56,27 +61,28 @@ public class View {
             handleException("Have to start new sale first.", exc);
         }
 
-
-
     }
 
     private void registerItem(String itemIdentifier, Amount amount){
         String out;
         try {
-            out = controller.registerItem(itemIdentifier, amount);
-            System.out.println(out);
+                out = controller.registerItem(itemIdentifier, amount);
+                System.out.println(out);
         }catch (InvalidItemIdentifierException exc) {
             handleException("Item identifier " + itemIdentifier +  " doesn't exist, please try again.", exc);
         }catch (OperationFailedException exc) {
             handleException("Failed to register item, try again.", exc);
-        }catch (IllegalStateException exc){
+        }catch (IllegalStateException exc) {
             handleException("Have to start new sale.", exc);
-        }
+        }catch (ServerNotRunningException exc){
+            handleException("Cannot reach the database.", exc);
+    }
     }
 
     private void handleException(String message, Exception exception){
         errorMessageHandler.showErrorMsg(message);
         logHandler.showLogException(exception);
+        fileLogHandler.showLogException(exception);
     }
 
 }

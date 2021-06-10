@@ -38,7 +38,10 @@ public class ItemCatalog {
      * @throws ItemCatalogException If the database call failed.
      */
     public Item getItem(String itemIdentifier, Amount quantity) throws InvalidItemIdentifierException {
-        if (!itemExists(itemIdentifier)){
+        if (itemIdentifier=="DATABASEERROR"){
+            throw new ServerNotRunningException();
+
+        }if (!itemExists(itemIdentifier)){
             throw new InvalidItemIdentifierException(itemIdentifier);
         }
         Item newItem = new Item(itemList.get(itemIdentifier), itemIdentifier, quantity);
