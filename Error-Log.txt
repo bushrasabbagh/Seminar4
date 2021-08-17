@@ -1,7 +1,7 @@
 ************ LOG *************
-2021-08-17, Exception was thrown: Cannot reach the server.
+2021-08-17, Exception was thrown: Cannot reach the database.
 
-integration.ServerNotRunningException: Cannot reach the server.
+integration.ServerNotRunningException: Cannot reach the database.
 	at integration.ItemCatalog.getItem(ItemCatalog.java:42)
 	at controller.Controller.registerItem(Controller.java:67)
 	at view.View.registerItem(View.java:70)

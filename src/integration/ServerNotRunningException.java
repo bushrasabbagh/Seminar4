@@ -9,6 +9,6 @@ public class ServerNotRunningException extends RuntimeException {
      * Creates a new instance of the object.
      */
     public ServerNotRunningException(){
-        super("Cannot reach the server.");
+        super("Cannot reach the database.");
     }
 }
