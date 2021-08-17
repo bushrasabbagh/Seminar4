@@ -26,6 +26,7 @@ public class View {
     public View(Controller controller){
         this.controller = controller;
         controller.addPaymentObserver(new TotalRevenueView());
+        controller.addPaymentObserver(new TotalRevenueFileOutput());
     }
 
     /**
