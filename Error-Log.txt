@@ -1,30 +1,30 @@
 ************ LOG *************
-2021-06-10, Exception was thrown: Cannot reach the server.
+2021-08-17, Exception was thrown: Cannot reach the server.
 
 integration.ServerNotRunningException: Cannot reach the server.
 	at integration.ItemCatalog.getItem(ItemCatalog.java:42)
 	at controller.Controller.registerItem(Controller.java:67)
-	at view.View.registerItem(View.java:69)
-	at view.View.sampleExecution(View.java:41)
+	at view.View.registerItem(View.java:70)
+	at view.View.sampleExecution(View.java:42)
 	at startup.Main.main(Main.java:26)
 ************ /LOG/ *************
 ************ LOG *************
-2021-06-10, Exception was thrown: Given item identifer: Tomt, doesn't exist.
+2021-08-17, Exception was thrown: Given item identifer: Tomt, doesn't exist.
 
 integration.InvalidItemIdentifierException: Given item identifer: Tomt, doesn't exist.
 	at integration.ItemCatalog.getItem(ItemCatalog.java:45)
 	at controller.Controller.registerItem(Controller.java:67)
-	at view.View.registerItem(View.java:69)
-	at view.View.sampleExecution(View.java:43)
+	at view.View.registerItem(View.java:70)
+	at view.View.sampleExecution(View.java:44)
 	at startup.Main.main(Main.java:26)
 ************ /LOG/ *************
 ************ LOG *************
-2021-06-10, Exception was thrown: Could not get the item.
+2021-08-17, Exception was thrown: Could not get the item.
 
 controller.OperationFailedException: Could not get the item.
 	at controller.Controller.registerItem(Controller.java:71)
-	at view.View.registerItem(View.java:69)
-	at view.View.sampleExecution(View.java:44)
+	at view.View.registerItem(View.java:70)
+	at view.View.sampleExecution(View.java:45)
 	at startup.Main.main(Main.java:26)
 Caused by: integration.ItemCatalogException: Gets the wrong item from database
 	at integration.ItemCatalog.getItem(ItemCatalog.java:52)
